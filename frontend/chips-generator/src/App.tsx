@@ -2,6 +2,7 @@ import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import Home from "./pages/Home";
+import RouteTest from "./pages/RouteTest";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -33,7 +34,7 @@ type AppVersion = {
 //I modified some code yey!s
 
 const App: React.FC = () => {
-  const currVersion='v0.01';
+  const currVersion='v0.02';
   const [up2date, setUp2date]=useState<boolean>(true)
   const [alert, setAlert]=useState<boolean>(false)
   const [needUninstall, setNeedUninstall]=useState<boolean>(false)
@@ -86,6 +87,9 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/">
             <Redirect to="/home" />
+          </Route>
+          <Route exact path="/route-test">
+            <RouteTest appVersion={currVersion}/>
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
