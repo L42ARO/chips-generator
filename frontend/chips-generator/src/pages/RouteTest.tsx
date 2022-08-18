@@ -39,7 +39,57 @@ const RouteTest: React.FC<RouteTestArgs>= (args) => {
     setChatTitle(localStorage.getItem("chatTitle") || "");
     $(function(){
         window.addEventListener("dfMessengerLoaded",()=>{
-            console.log("dfMessengerLoaded");
+          $r1 = document.querySelector("df-messenger");
+          $r2 = $r1.shadowRoot.querySelector("df-messenger-chat");
+          $r3 = $r2.shadowRoot.querySelector("df-messenger-titlebar");
+          $r4 = $r2.shadowRoot.querySelector("df-message-list");
+          var sheet1 = new CSSStyleSheet;
+          sheet1.replaceSync(`
+                  .df-messenger-wrapper {
+                      z-index: 3;
+                      position: relative !important;
+                      height: 100%;
+                      bottom: 0px !important;
+                      left: 0px !important;
+                      padding: 0px !important;
+                      background-color: rgb(0,0,0,0);
+                  }
+                  .expanded > #widgetIcon {
+                      visibility: hidden !important;
+                  }
+                  `);
+          var sheet2 = new CSSStyleSheet;
+          sheet2.replaceSync(`
+                  div.chat-wrapper[opened="true"] {
+                      height: 100% !important;
+                      width: 100% !important;
+                      bottom: 0px !important;
+                      right: 0px !important;
+                      position: absolute !important;
+                      margin: 0px !important;
+                      border-radius: 2vh;
+                  }
+                  df-messenger-titlebar {
+                      display: none !important;
+                  }
+                  `);
+
+          var sheet3 = new CSSStyleSheet;
+          sheet3.replaceSync(`
+                  .title-wrapper {
+                      visibility: hidden !important;
+                  }
+                  `);
+          var sheet4 = new CSSStyleSheet;
+          sheet4.replaceSync(`
+                  #messageList .message.user-message {
+                      color: black !important;
+                  }
+                  `);
+          $r1.shadowRoot.adoptedStyleSheets = [sheet1];
+          $r2.shadowRoot.adoptedStyleSheets = [sheet2];
+          $r3.shadowRoot.adoptedStyleSheets = [sheet3];
+          $r4.shadowRoot.adoptedStyleSheets = [sheet4];
         })
     });
   },[]);
