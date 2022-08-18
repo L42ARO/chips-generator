@@ -1,0 +1,7 @@
+{
+  "name": "chips-generator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

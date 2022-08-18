@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Monofett&display=swap');
+
+@layer components{
+    .explain-text{
+        @apply dark:text-gray-300 text-gray-800 text-sm font-bold;
+    }
+    .subtitle{
+        @apply font-Monofett dark:text-white text-black text-3xl;
+    }
+    .footergrad{
+        @apply sm-w:bg-white dark:sm-w:bg-ion-dark sm-w:rounded-tl-full;
+    }
+}
