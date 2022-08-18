@@ -30,6 +30,7 @@ type AppVersion = {
   version: string;
   update_assets: boolean;
 };
+//I modified some code yey!s
 
 const App: React.FC = () => {
   const currVersion='v0.01';
