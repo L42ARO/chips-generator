@@ -4,6 +4,7 @@ import {
 
 import { useEffect, useState } from "react";
 import { BsQuestionDiamondFill } from 'react-icons/bs';
+import { Link } from "react-router-dom";
 import ChipEditor from "../components/ChipEditor";
 import CodeResult from "../components/CodeResult";
 import HelpPopUp from "../components/HelpPopUp";
@@ -52,6 +53,10 @@ const Home: React.FC<HomeArgs>= (args) => {
             <ChipsGenIcon className="h-[45px] xs-w:h-[35px] xxs-w:h-0"/>
             &nbsp;Generator
           </div>
+        </div>
+        <div className="flex justify-around">
+          <Link to="/"> Chips</Link>
+          <Link to="/route-test"> Route Tester</Link>
         </div>
       </IonHeader>
       <IonContent fullscreen>
